@@ -2,6 +2,7 @@ package com.Tienda.Tienda_IIIQ.service.impl;
 
 import com.Tienda.Tienda_IIIQ.dao.CategoriaDao;
 import com.Tienda.Tienda_IIIQ.domain.Categoria;
+import com.Tienda.Tienda_IIIQ.domain.Producto;
 import com.Tienda.Tienda_IIIQ.service.CategoriaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,17 @@ public class CategoriaServiceImpl implements CategoriaService {
     @Transactional
     public void delete(Categoria categoria) {
         categoriaDao.delete(categoria);
+    }
+
+    // Lista de productos con precio entre ordendados por descripción ConsultaAmpliada
+    @Override
+    @Transactional(readOnly = true)
+    public List<Producto> findByPrecioBetweenOrderByDescripcion(double precioInf, double precioSup) {
+        return productoDao.findByPrecioBetweenOrderByDescripcion(precioInf, precioSup);
+    }
+
+    @Override
+    public List<Categoria> getCategoriasporDescripcion(String descripcion) {
+        return ;
     }
 }
