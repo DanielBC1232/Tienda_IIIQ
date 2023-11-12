@@ -21,6 +21,6 @@ public interface CategoriaService {
     // Se elimina el categoria que tiene el id pasado por parámetro
     public void delete(Categoria categoria);
     
-    public List<Categoria> getCategoriasporDescripcion(String descripcion);
+    public List<Categoria> getCategoriasPorDescripcion(String descripcion);
     
 }
